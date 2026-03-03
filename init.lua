@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -500,6 +500,9 @@ require('lazy').setup({
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
+
+      -- Allows extra capabilities provided by blink.cmp
+      'saghen/blink.cmp',
     },
     config = function()
       -- Brief aside: **What is LSP?**
@@ -616,8 +619,6 @@ require('lazy').setup({
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
           on_init = function(client)
-            client.server_capabilities.documentFormattingProvider = false -- Disable formatting (formatting is done by stylua)
-
             if client.workspace_folders then
               local path = client.workspace_folders[1].name
               if path ~= vim.fn.stdpath 'config' and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then return end
@@ -639,11 +640,8 @@ require('lazy').setup({
               },
             })
           end,
-          ---@type lspconfig.settings.lua_ls
           settings = {
-            Lua = {
-              format = { enable = false }, -- Disable formatting (formatting is done by stylua)
-            },
+            Lua = {},
           },
         },
       }
@@ -947,12 +945,12 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommended keymaps
+  require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.indent_line',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
