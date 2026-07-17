@@ -16,7 +16,7 @@ return {
         show_close_icon = false,
         offsets = {
           {
-            filetype = 'neotree',
+            filetype = 'neo-tree',
             text = '',
             separator = true,
           },
@@ -24,8 +24,8 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<S-n>', '<cmd>BufferLineCycleNext<CR>', { desc = '[N]ext Buffer' })
-    vim.keymap.set('n', '<S-p>', '<cmd>BufferLineCyclePrev<CR>', { desc = '[P]revious Buffer' })
+    vim.keymap.set('n', '<S-l>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next Buffer' })
+    vim.keymap.set('n', '<S-h>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous Buffer' })
     vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = '[C]lose Buffer' })
   end,
 }
