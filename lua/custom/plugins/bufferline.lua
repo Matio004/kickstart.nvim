@@ -14,7 +14,18 @@ return {
         always_show_bufferline = true, -- zawsze pokazuj pasek, nawet przy jednym pliku
         show_buffer_close_icons = true,
         show_close_icon = false,
+        offsets = {
+          {
+            filetype = 'neotree',
+            text = '',
+            separator = true,
+          },
+        },
       },
     }
+
+    vim.keymap.set('n', '<S-n>', '<cmd>BufferLineCycleNext<CR>', { desc = '[N]ext Buffer' })
+    vim.keymap.set('n', '<S-p>', '<cmd>BufferLineCyclePrev<CR>', { desc = '[P]revious Buffer' })
+    vim.keymap.set('n', '<leader>c', '<cmd>bdelete<CR>', { desc = '[C]lose Buffer' })
   end,
 }
