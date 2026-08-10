@@ -1,0 +1,3 @@
+---@module 'lazy'
+---@type LazySpec
+return { 'akinsho/bufferline.nvim', version = false, dependencies = 'nvim-tree/nvim-web-devicons' }
