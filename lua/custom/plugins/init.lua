@@ -24,4 +24,7 @@ return {
       lsp_doc_border = false, -- add a border to hover docs and signature help
     },
   },
+  require('render-markdown').setup {
+    latex = { enabled = false },
+  },
 }
