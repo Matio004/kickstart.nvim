@@ -3,6 +3,7 @@ vim.opt.diffopt = {
   'internal',
   'filler',
   'closeoff',
+  'hiddenoff',
   'indent-heuristic',
   'inline:char',
   'algorithm:histogram',
