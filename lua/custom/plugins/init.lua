@@ -5,6 +5,4 @@
 
 ---@module 'lazy'
 ---@type LazySpec
-return {
-  require('mini.move').setup(),
-}
+return {}
